@@ -1,0 +1,19 @@
+[
+{
+  "modinfoversion":2,
+  "modid": "mctwitter",
+  "name": "MCTwitterClient",
+  "description": "Twitter client in the minecraft.",
+  "version": "${version}",
+  "mcversion": "1.10.0",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["tmyt"],
+  "credits": "The Forge and FML guys, for making this example",
+  "logoFile": "",
+  "screenshots": [],
+  "requiredMods":["Forge"],
+  "dependencies": ["api"],
+  "useDependencyInformation":"true"
+}
+]
