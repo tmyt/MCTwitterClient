@@ -10,9 +10,11 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 /*
 // for people who want stable - not yet functional for MC 1.8.8 - we require the forgegradle 2.1 snapshot
@@ -42,6 +44,11 @@ minecraft {
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
+configurations {
+    external
+    compile.extendsFrom external
+}
+
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
@@ -63,9 +70,9 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    compile 'org.twitter4j:twitter4j-core:4.0.4'
-    compile 'org.twitter4j:twitter4j-stream:4.0.4'
-    compile 'org.twitter4j:twitter4j-async:4.0.4'
+    external 'org.twitter4j:twitter4j-core:4.0.4'
+    external 'org.twitter4j:twitter4j-stream:4.0.4'
+    external 'org.twitter4j:twitter4j-async:4.0.4'
 }
 
 processResources
@@ -85,5 +92,16 @@ processResources
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
+    }
+}
+
+shadowJar {
+}
+
+jar {
+    configurations.external.each { dep ->
+        from(project.zipTree(dep)){
+            exclude 'META-INF', 'META-INF/**'
+        }
     }
 }
