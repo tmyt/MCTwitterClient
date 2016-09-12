@@ -18,7 +18,11 @@ public class ChatUtil {
     public static void send(String string, TextFormatting color){
         ITextComponent message = new TextComponentString(string);
         message.getStyle().setColor(color);
-        FMLClientHandler.instance().getClientPlayerEntity().addChatMessage(message);
+        send(message);
+    }
+
+    public static void send(ITextComponent components){
+        FMLClientHandler.instance().getClientPlayerEntity().addChatMessage(components);
     }
 
     public static void send(TwitterException e){

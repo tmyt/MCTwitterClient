@@ -17,7 +17,7 @@ import java.io.File;
 /**
  * Created by yutaka on 9/11/2016.
  */
-@Mod(modid = "mctwitter", version = "1.0.0")
+@Mod(modid = "mctwitter", version = "1.1.0")
 public class ModMCTwitter {
     static final String CATEGORY = "twitter";
     static final String KEY_ACCESS_TOKEN = "access_token";
