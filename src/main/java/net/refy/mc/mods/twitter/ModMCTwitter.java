@@ -42,7 +42,7 @@ public class ModMCTwitter {
         MinecraftForge.EVENT_BUS.register(this);
         ClientCommandHandler.instance.registerCommand(new CommandTwitter());
         ClientCommandHandler.instance.registerCommand(new CommandAuthTwitter());
-        ClientCommandHandler.instance.registerCommand(new CommandRunStream());
+        ClientCommandHandler.instance.registerCommand(new CommandConnectStream());
     }
 
     @SubscribeEvent

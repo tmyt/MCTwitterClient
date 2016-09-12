@@ -16,7 +16,7 @@ import java.util.Comparator;
 /**
  * Created by yutaka on 9/11/2016.
  */
-public class CommandRunStream extends CommandBase implements StatusListener{
+public class CommandConnectStream extends CommandBase implements StatusListener{
     private TwitterStream mStream;
 
     @Override
@@ -31,7 +31,7 @@ public class CommandRunStream extends CommandBase implements StatusListener{
 
     @Override
     public String getCommandName() {
-        return "run-stream";
+        return "connect-stream";
     }
 
     @Override
