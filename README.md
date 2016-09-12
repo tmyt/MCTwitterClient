@@ -1,4 +1,4 @@
-# MCTwitterMod
+# MCTwitterClient
 
 ## What this
 
